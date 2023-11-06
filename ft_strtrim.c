@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: obenchkr <obenchkr@student.42.fr>          +#+  +:+       +#+        */
+/*   By: obenchkr <obenchkr@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 08:23:09 by obenchkr          #+#    #+#             */
-/*   Updated: 2023/11/03 21:52:20 by obenchkr         ###   ########.fr       */
+/*   Updated: 2023/11/06 21:43:15 by obenchkr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,10 @@ char	*ft_strtrim(const char *str, const char *set)
 	char	*result;
 	int		buf_size;
 
+	if (!str)
+		return (NULL);
+	if (!set)
+		return (ft_strdup(str));
 	while (*str && ft_strchr(set, *str))
 		str++;
 	if (*str == '\0')

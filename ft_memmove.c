@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: obenchkr <obenchkr@student.42.fr>          +#+  +:+       +#+        */
+/*   By: obenchkr <obenchkr@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 05:17:01 by obenchkr          #+#    #+#             */
-/*   Updated: 2023/11/04 00:50:30 by obenchkr         ###   ########.fr       */
+/*   Updated: 2023/11/06 21:48:33 by obenchkr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memmove(void *dst, void *src, size_t n)
+void	*ft_memmove(void *dst, const void *src, size_t n)
 {
 	unsigned char	*udst;
 	unsigned char	*usrc;
@@ -21,8 +21,8 @@ void	*ft_memmove(void *dst, void *src, size_t n)
 		return (dst);
 	if (!dst && !src)
 		return (NULL);
-	udst = dst;
-	usrc = src;
+	udst = (unsigned char *)dst;
+	usrc = (unsigned char *)src;
 	if (dst < src)
 		return (ft_memcpy(dst, src, n));
 	while (n)
