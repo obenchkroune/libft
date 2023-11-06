@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: obenchkr <obenchkr@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: obenchkr <obenchkr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/06 20:25:09 by obenchkr          #+#    #+#             */
-/*   Updated: 2023/11/06 20:28:59 by obenchkr         ###   ########.fr       */
+/*   Created: 2023/11/03 07:18:24 by obenchkr          #+#    #+#             */
+/*   Updated: 2023/11/03 07:23:41 by obenchkr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,27 +14,29 @@
 
 static int	ft_isspace(int c)
 {
-	return (c == 32 || (c >= 9 && c <= 13));
+	return ((c >= 9 && c <= 13) || c == 32);
 }
 
-int	ft_atoi(const char *nbr)
+int	ft_atoi(const char *str)
 {
-	int	result;
 	int	sign;
+	int	result;
 
 	sign = 1;
-	while (ft_isspace(*nbr) && *nbr)
-		nbr++;
-	if (*nbr == '+' || *nbr == '-')
+	result = 0;
+	while (*str && ft_isspace(*str))
+		str++;
+	if (*str == '+' || *str == '-')
 	{
-		if (*nbr == '-')
+		if (*str == '-')
 			sign = -1;
-		nbr++;
+		str++;
 	}
-	while (ft_isdigit(*nbr) && *nbr)
+	while (*str && ft_isdigit(*str))
 	{
-		result = (result * 10) + (*nbr - '0');
-		nbr++;
+		result *= 10;
+		result += *str - '0';
+		str++;
 	}
-	return (*nbr * sign);
+	return (result * sign);
 }
