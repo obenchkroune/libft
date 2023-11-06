@@ -6,7 +6,7 @@
 /*   By: obenchkr <obenchkr@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 05:45:20 by obenchkr          #+#    #+#             */
-/*   Updated: 2023/11/06 21:57:38 by obenchkr         ###   ########.fr       */
+/*   Updated: 2023/11/06 22:17:07 by obenchkr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ size_t	ft_strlcat(char *dst, const char *src, size_t n)
 
 	src_size = ft_strlen(src);
 	if (n == 0)
-		return (n + src_size);
+		return (src_size);
 	dst_size = ft_strlen(dst);
 	if (n < dst_size)
 		return (n + src_size);
